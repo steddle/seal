@@ -66,4 +66,4 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
-The code is MIT. See [LICENSE](LICENSE). The VCRS records in `tests/vcrs/` are CC BY 4.0, as their [notice](tests/vcrs/NOTICE.md) says.
+The code is MIT. See [LICENSE](LICENSE). The test vectors in `vectors/` are CC BY 4.0, as their [notice](vectors/NOTICE.md) says, and so are the VCRS records in `tests/vcrs/` ([notice](tests/vcrs/NOTICE.md)).
