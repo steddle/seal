@@ -1,6 +1,6 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="art/social/readme-banner-dark.png">
-  <img src="art/social/readme-banner-light.png" alt="Steddle Seal: one fingerprint, byte for byte" width="1600">
+  <img src="art/social/readme-banner-light.png" alt="Steddle Seal: proof a file existed, by a time anyone can check" width="1600">
 </picture>
 
 # Steddle Seal
