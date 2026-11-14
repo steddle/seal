@@ -1,0 +1,94 @@
+{
+ "primitive": "2. Fingerprint",
+ "about": "A fingerprint is a SHA-256 value. One type reads both spellings and prints one. Read: 64 hex characters in either case, bare or after 'sha256:'. Print: 'sha256:' and 64 lowercase hex characters. Two fingerprints are equal when their 32 bytes are. The example is the fingerprint of zero bytes. Nothing that exists is renamed: VCRS's records keep 'digest', and every stored column and route keeps its name.",
+ "vectors": [
+  {
+   "name": "bare hex",
+   "in": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "accept": true,
+   "prints": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "with the prefix",
+   "in": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "accept": true,
+   "prints": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "bare hex in capitals",
+   "in": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+   "accept": true,
+   "prints": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "with the prefix, hex in capitals",
+   "in": "sha256:E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+   "accept": true,
+   "prints": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "one character short",
+   "in": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b85",
+   "accept": false,
+   "why": "wrong_length"
+  },
+  {
+   "name": "one character long",
+   "in": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b8550",
+   "accept": false,
+   "why": "wrong_length"
+  },
+  {
+   "name": "the first eight characters",
+   "in": "e3b0c442",
+   "accept": false,
+   "why": "wrong_length",
+   "note": "A short form is a hint for the eye. It is never a fingerprint."
+  },
+  {
+   "name": "a trailing line break",
+   "in": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\n",
+   "accept": false,
+   "why": "wrong_length",
+   "note": "Refused, not trimmed: a fingerprint that arrives with white space was copied by hand."
+  },
+  {
+   "name": "a letter that is not hex",
+   "in": "g3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "accept": false,
+   "why": "not_hex"
+  },
+  {
+   "name": "the prefix in capitals",
+   "in": "SHA256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "accept": false,
+   "why": "unknown_prefix"
+  },
+  {
+   "name": "another algorithm",
+   "in": "sha512:cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",
+   "accept": false,
+   "why": "unknown_prefix"
+  },
+  {
+   "name": "the prefix twice",
+   "in": "sha256:sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "accept": false,
+   "why": "wrong_length"
+  },
+  {
+   "name": "empty",
+   "in": "",
+   "accept": false,
+   "why": "wrong_length"
+  }
+ ],
+ "equal": [
+  [
+   "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+   "sha256:E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  ]
+ ]
+}
