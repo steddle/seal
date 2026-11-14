@@ -1,6 +1,6 @@
 {
  "primitive": "2. Fingerprint",
- "about": "A fingerprint is a SHA-256 value. One type reads both spellings and prints one. Read: 64 hex characters in either case, bare or after 'sha256:'. Print: 'sha256:' and 64 lowercase hex characters. Two fingerprints are equal when their 32 bytes are. The example is the fingerprint of zero bytes. Nothing that exists is renamed: VCRS's records keep 'digest', and every stored column and route keeps its name.",
+ "about": "A fingerprint is a SHA-256 value. One type reads both spellings and prints one. Read: 64 hex characters in either case, bare or after 'sha256:'. Print: 'sha256:' and 64 lowercase hex characters. Two fingerprints are equal when their 32 bytes are. The example is the fingerprint of zero bytes.",
  "vectors": [
   {
    "name": "bare hex",

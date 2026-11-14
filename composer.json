@@ -1,7 +1,22 @@
 {
     "name": "steddle/seal",
-    "description": "How every Steddle product stores proof alike: the fingerprint and canonical JSON.",
+    "description": "The fingerprint and canonical JSON that Steddle's products store proof with: SHA-256 in one spelling, and RFC 8785 over I-JSON.",
+    "keywords": [
+        "sha256",
+        "fingerprint",
+        "canonical json",
+        "rfc8785",
+        "jcs",
+        "i-json"
+    ],
+    "homepage": "https://github.com/steddle/seal",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Steddle Group B.V.",
+            "homepage": "https://steddle.com"
+        }
+    ],
     "require": {
         "php": "^8.3",
         "ext-mbstring": "*"
@@ -12,6 +27,11 @@
     "autoload": {
         "psr-4": {
             "Steddle\\Seal\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }
