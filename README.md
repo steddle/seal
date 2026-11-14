@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="art/social/readme-banner-dark.png">
+  <img src="art/social/readme-banner-light.png" alt="Seal: one fingerprint, byte for byte" width="1600">
+</picture>
+
 # Seal
 
 [![Packagist](https://img.shields.io/packagist/v/steddle/seal)](https://packagist.org/packages/steddle/seal)
@@ -66,4 +71,4 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
-The code is MIT. See [LICENSE](LICENSE). The test vectors in `vectors/` are CC BY 4.0, as their [notice](vectors/NOTICE.md) says.
+The code is MIT. See [LICENSE](LICENSE). The test vectors in `vectors/` are CC BY 4.0, as their [notice](vectors/NOTICE.md) says. The mark in `art/` is Steddle's and covered by neither ([notice](art/NOTICE.md)).
