@@ -27,8 +27,8 @@ use Steddle\Seal\Json;
 
 $record = Json::decode('{ "b": [1.0, 1e0], "a": null }');
 
-Canonical::json($record);                     // {"a":null,"b":[1,1]}
-(string) Fingerprint::of(Canonical::json($record)); // sha256:...
+Canonical::json($record);                           // {"a":null,"b":[1,1]}
+(string) Fingerprint::of(Canonical::json($record)); // sha256:7773f186...c753bb05
 ```
 
 The same record, written with other spacing, member order or number forms, gives the same canonical bytes and so the same fingerprint.
@@ -44,7 +44,7 @@ The same record, written with other spacing, member order or number forms, gives
 
 - `Json::decode($text)` reads I-JSON and refuses a member name twice, NaN or an infinity, half a surrogate pair, and any text that isn't JSON.
 - `Canonical::json($value)` writes members sorted by UTF-16 code units and numbers as ECMAScript prints them.
-- Every refusal is a `Refused` exception. Its `why` is a fixed code (`duplicate_name`, `not_finite`, `lone_surrogate`, `not_json`, `wrong_length`, `not_hex`, `unknown_prefix`), so callers branch on the code and never on the wording. Where one member is at fault, `pointer` gives its RFC 6901 JSON Pointer, such as `/records/3/id`.
+- Every refusal is a `Refused` exception. Its `why` is a fixed code (`duplicate_name`, `not_finite`, `lone_surrogate`, `not_json`, `wrong_length`, `not_hex`, `unknown_prefix`), so callers can branch on it. Where one member is at fault, `pointer` gives its RFC 6901 JSON Pointer, such as `/records/3/id`.
 
 ## Vectors
 
