@@ -48,7 +48,7 @@ The same record, written with other spacing, member order or number forms, gives
 
 ## Vectors
 
-`vectors/` is the contract: `fingerprint.json` and `canonical.json` state every input and its expected output or refusal, RFC 8785's number table among them. Another implementation in any language is equal to this one when it gives the same answer on every case. `tests/vcrs/` holds the 138 test records of [VCRS](https://vcrs.org), the Verified Claimant Register Standard, and each gets its stated fingerprint.
+`vectors/` is the contract: `fingerprint.json` and `canonical.json` state every input and its expected output or refusal, RFC 8785's number table among them. Another implementation in any language is equal to this one when it gives the same answer on every case.
 
 ```bash
 composer install
@@ -66,4 +66,4 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
-The code is MIT. See [LICENSE](LICENSE). The test vectors in `vectors/` are CC BY 4.0, as their [notice](vectors/NOTICE.md) says, and so are the VCRS records in `tests/vcrs/` ([notice](tests/vcrs/NOTICE.md)).
+The code is MIT. See [LICENSE](LICENSE). The test vectors in `vectors/` are CC BY 4.0, as their [notice](vectors/NOTICE.md) says.

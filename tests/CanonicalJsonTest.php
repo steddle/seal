@@ -1,7 +1,6 @@
 <?php
 
 use Steddle\Seal\Canonical;
-use Steddle\Seal\Fingerprint;
 use Steddle\Seal\Json;
 use Steddle\Seal\Refused;
 
@@ -13,25 +12,10 @@ function canonicalVectors(): array
     return json_decode(file_get_contents(dirname(__DIR__).'/vectors/canonical.json'), true, flags: JSON_THROW_ON_ERROR);
 }
 
-/**
- * @return array<string, string> each VCRS record file by its path under vectors/
- */
-function vcrsRecords(): array
-{
-    $files = [];
-
-    foreach (glob(__DIR__.'/vcrs/vectors/*/*.json') as $path) {
-        $files[basename(dirname($path)).'/'.basename($path, '.json')] = $path;
-    }
-
-    return $files;
-}
-
-test('the vector file holds 26 numbers, 7 values and 5 refusals, and the VCRS copy 138 records', function () {
+test('the vector file holds 26 numbers, 8 values and 5 refusals', function () {
     expect(canonicalVectors()['numbers'])->toHaveCount(26)
-        ->and(canonicalVectors()['values'])->toHaveCount(7)
-        ->and(canonicalVectors()['refused'])->toHaveCount(5)
-        ->and(vcrsRecords())->toHaveCount(138);
+        ->and(canonicalVectors()['values'])->toHaveCount(8)
+        ->and(canonicalVectors()['refused'])->toHaveCount(5);
 });
 
 test('each double prints as appendix B of RFC 8785 states', function (string $ieee, string $prints) {
@@ -88,11 +72,3 @@ test('a member name that appears twice is refused at its JSON pointer', function
 test('a refusal that is not about one member names no pointer', function () {
     expect(fn () => Json::decode('[1,]'))->toThrow(fn (Refused $refused) => expect($refused->pointer)->toBeNull());
 });
-
-test('each VCRS record gets its stated digest', function (string $path) {
-    $file = Json::decode(file_get_contents($path));
-    $record = clone $file->record;
-    unset($record->digest);
-
-    expect((string) Fingerprint::of(Canonical::json($record)))->toBe($file->expected->digest);
-})->with(vcrsRecords(...));

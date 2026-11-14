@@ -1,5 +1,14 @@
 # Changelog
 
+## [Unreleased]
+
+**Added**
+- `canonical.json` holds the short escapes: backspace, tab, form feed and carriage return.
+
+**Changed**
+- The copy of VCRS's 138 test records is gone from `tests/vcrs/`. They belong to VCRS's own suite.
+- A Composer download leaves out `tests/`, `phpunit.xml` and the repository's own files.
+
 ## [0.1.0] - 2026-11-14
 
 First public release.

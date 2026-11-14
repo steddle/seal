@@ -126,6 +126,12 @@
    "note": "Only what JSON must escape is escaped. The solidus, U+2028 and letters outside ASCII are written as they are."
   },
   {
+   "name": "the short escapes",
+   "text": "\"\\b\\t\\f\\r\\u0008\"",
+   "prints": "\"\\b\\t\\f\\r\\b\"",
+   "note": "RFC 8785 writes backspace, tab, form feed, line feed and carriage return in their two-character form, however the text gave them."
+  },
+  {
    "name": "one number written three ways",
    "text": "[1.0, 1e0, 100e-2]",
    "prints": "[1,1,1]"
@@ -174,11 +180,5 @@
    "text": "\"\\ud800\"",
    "why": "lone_surrogate"
   }
- ],
- "vcrs": {
-  "repository": "github.com/steddle/vcrs",
-  "commit": "7535c6867d1384c588005b1e20ad40c34dd3c7cc",
-  "rule": "Every file under vectors/ holds a record and expected.digest. SHA-256 over the record's canonical form, without its own digest member, is that digest.",
-  "run": "python3 check.py --vcrs PATH"
- }
+ ]
 }
