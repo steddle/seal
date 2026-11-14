@@ -1,0 +1,55 @@
+{
+    "description": "Declared after the term the court set in the announcement (art. 11 ust. 5)",
+    "annex": "pl",
+    "flows": {
+        "f1": {
+            "informs": true,
+            "live_from": "2020-01-01",
+            "live_to": null
+        },
+        "f0": {
+            "informs": false,
+            "live_from": "2020-01-01",
+            "live_to": null
+        }
+    },
+    "record": {
+        "id": "r-0001",
+        "party": "natural",
+        "status": "excluded",
+        "status_on": "2026-09-01",
+        "joined_on": "2026-09-01",
+        "flow": "f1",
+        "terms": "t1",
+        "identity": {
+            "name": true,
+            "birth_date": true,
+            "contact_confirmed": true,
+            "verified": null
+        },
+        "membership": {
+            "basis": "declared",
+            "in_class": true,
+            "evidence": [],
+            "checked_against": null
+        },
+        "duplicate_of": null,
+        "residence": {
+            "country": "PL",
+            "on": "2026-09-01"
+        },
+        "opt_in": {
+            "on": "2027-02-10",
+            "channel": "representative",
+            "action": "action-1"
+        },
+        "parallel_declared": true
+    },
+    "expected": {
+        "grade": "D",
+        "reasons": [
+            "not_active"
+        ],
+        "digest": "sha256:6e36a3762a0233e79506d6257f86f4fad7aad681f80a38c482d85a18fcdda53e"
+    }
+}

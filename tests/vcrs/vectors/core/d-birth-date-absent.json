@@ -1,0 +1,43 @@
+{
+    "description": "A natural person whose record omits birth_date altogether",
+    "annex": null,
+    "flows": {
+        "f1": {
+            "informs": true,
+            "live_from": "2020-01-01",
+            "live_to": null
+        },
+        "f0": {
+            "informs": false,
+            "live_from": "2020-01-01",
+            "live_to": null
+        }
+    },
+    "record": {
+        "id": "r-0001",
+        "party": "natural",
+        "status": "active",
+        "joined_on": "2026-09-01",
+        "flow": "f1",
+        "terms": "t1",
+        "identity": {
+            "name": true,
+            "contact_confirmed": true,
+            "verified": null
+        },
+        "membership": {
+            "basis": "declared",
+            "in_class": null,
+            "evidence": [],
+            "checked_against": null
+        },
+        "duplicate_of": null
+    },
+    "expected": {
+        "grade": "D",
+        "reasons": [
+            "not_distinct"
+        ],
+        "digest": "sha256:3af664d498af0f50a4e37834fe8a99e7aedf5ad4ba893c4363e3e8dce4be5b07"
+    }
+}

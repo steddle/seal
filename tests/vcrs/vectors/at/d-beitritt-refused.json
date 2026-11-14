@@ -1,0 +1,51 @@
+{
+    "description": "The qualified entity refused the consumer's request to join, so no Beitritt was filed (§ 628(1) ZPO)",
+    "annex": "at",
+    "flows": {
+        "f1": {
+            "informs": true,
+            "live_from": "2020-01-01",
+            "live_to": null
+        },
+        "f0": {
+            "informs": false,
+            "live_from": "2020-01-01",
+            "live_to": null
+        }
+    },
+    "record": {
+        "id": "r-0001",
+        "party": "natural",
+        "status": "excluded",
+        "status_on": "2026-09-01",
+        "joined_on": "2026-09-01",
+        "flow": "f1",
+        "terms": "t1",
+        "identity": {
+            "name": true,
+            "birth_date": true,
+            "contact_confirmed": true,
+            "verified": null
+        },
+        "membership": {
+            "basis": "declared",
+            "in_class": true,
+            "evidence": [],
+            "checked_against": null
+        },
+        "duplicate_of": null,
+        "residence": {
+            "country": "AT",
+            "on": "2026-09-01"
+        }
+    },
+    "expected": {
+        "grade": "D",
+        "reasons": [
+            "not_active",
+            "not_opted_in",
+            "no_parallel_declaration"
+        ],
+        "digest": "sha256:d5218337350733f2db7ab109bba6356f83194b62711efa6cafdc02e114a15b01"
+    }
+}

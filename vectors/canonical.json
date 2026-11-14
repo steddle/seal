@@ -1,0 +1,184 @@
+{
+ "primitive": "3. Canonical JSON",
+ "about": "RFC 8785 over I-JSON (RFC 7493). 'numbers' is the table of RFC 8785, appendix B, row for row: an IEEE 754 double and what it prints as. 'values' and 'refused' give a JSON text and its canonical form, or why it has none.",
+ "numbers": [
+  {
+   "ieee": "0000000000000000",
+   "prints": "0"
+  },
+  {
+   "ieee": "8000000000000000",
+   "prints": "0"
+  },
+  {
+   "ieee": "0000000000000001",
+   "prints": "5e-324"
+  },
+  {
+   "ieee": "8000000000000001",
+   "prints": "-5e-324"
+  },
+  {
+   "ieee": "7fefffffffffffff",
+   "prints": "1.7976931348623157e+308"
+  },
+  {
+   "ieee": "ffefffffffffffff",
+   "prints": "-1.7976931348623157e+308"
+  },
+  {
+   "ieee": "4340000000000000",
+   "prints": "9007199254740992"
+  },
+  {
+   "ieee": "c340000000000000",
+   "prints": "-9007199254740992"
+  },
+  {
+   "ieee": "4430000000000000",
+   "prints": "295147905179352830000"
+  },
+  {
+   "ieee": "7fffffffffffffff",
+   "prints": "refused:not_finite"
+  },
+  {
+   "ieee": "7ff0000000000000",
+   "prints": "refused:not_finite"
+  },
+  {
+   "ieee": "44b52d02c7e14af5",
+   "prints": "9.999999999999997e+22"
+  },
+  {
+   "ieee": "44b52d02c7e14af6",
+   "prints": "1e+23"
+  },
+  {
+   "ieee": "44b52d02c7e14af7",
+   "prints": "1.0000000000000001e+23"
+  },
+  {
+   "ieee": "444b1ae4d6e2ef4e",
+   "prints": "999999999999999700000"
+  },
+  {
+   "ieee": "444b1ae4d6e2ef4f",
+   "prints": "999999999999999900000"
+  },
+  {
+   "ieee": "444b1ae4d6e2ef50",
+   "prints": "1e+21"
+  },
+  {
+   "ieee": "3eb0c6f7a0b5ed8c",
+   "prints": "9.999999999999997e-7"
+  },
+  {
+   "ieee": "3eb0c6f7a0b5ed8d",
+   "prints": "0.000001"
+  },
+  {
+   "ieee": "41b3de4355555553",
+   "prints": "333333333.3333332"
+  },
+  {
+   "ieee": "41b3de4355555554",
+   "prints": "333333333.33333325"
+  },
+  {
+   "ieee": "41b3de4355555555",
+   "prints": "333333333.3333333"
+  },
+  {
+   "ieee": "41b3de4355555556",
+   "prints": "333333333.3333334"
+  },
+  {
+   "ieee": "41b3de4355555557",
+   "prints": "333333333.33333343"
+  },
+  {
+   "ieee": "becbf647612f3696",
+   "prints": "-0.0000033333333333333333"
+  },
+  {
+   "ieee": "43143ff3c1cb0959",
+   "prints": "1424953923781206.2"
+  }
+ ],
+ "values": [
+  {
+   "name": "the sorting example of RFC 8785, section 3.2.3",
+   "text": "{\"\u20ac\":\"Euro Sign\",\"\\r\":\"Carriage Return\",\"\ufb33\":\"Hebrew Letter Dalet With Dagesh\",\"1\":\"One\",\"\ud83d\ude00\":\"Emoji: Grinning Face\",\"\\u0080\":\"Control\",\"\u00f6\":\"Latin Small Letter O With Diaeresis\"}",
+   "prints": "{\"\\r\":\"Carriage Return\",\"1\":\"One\",\"\u0080\":\"Control\",\"\u00f6\":\"Latin Small Letter O With Diaeresis\",\"\u20ac\":\"Euro Sign\",\"\ud83d\ude00\":\"Emoji: Grinning Face\",\"\ufb33\":\"Hebrew Letter Dalet With Dagesh\"}",
+   "note": "Names sort by their UTF-16 code units, so the emoji sorts before U+FB33."
+  },
+  {
+   "name": "white space and member order",
+   "text": "{ \"b\" : [ 1 , 2 ] , \"a\" : { \"y\" : null , \"x\" : true } }",
+   "prints": "{\"a\":{\"x\":true,\"y\":null},\"b\":[1,2]}"
+  },
+  {
+   "name": "string escapes",
+   "text": "\"\\u000f\\n\\\"\\\\\\/\u00e9\u2028\"",
+   "prints": "\"\\u000f\\n\\\"\\\\/\u00e9\u2028\"",
+   "note": "Only what JSON must escape is escaped. The solidus, U+2028 and letters outside ASCII are written as they are."
+  },
+  {
+   "name": "one number written three ways",
+   "text": "[1.0, 1e0, 100e-2]",
+   "prints": "[1,1,1]"
+  },
+  {
+   "name": "where the exponent starts",
+   "text": "[1e21, 1e-7, 0.000001, 123456789012345680000]",
+   "prints": "[1e+21,1e-7,0.000001,123456789012345680000]"
+  },
+  {
+   "name": "an integer past 2^53",
+   "text": "9007199254740993",
+   "prints": "9007199254740992",
+   "note": "As vcrs-php prints it: the nearest double. A statement refuses a whole number past 2^53, so it never meets this."
+  },
+  {
+   "name": "minus zero",
+   "text": "-0.0",
+   "prints": "0",
+   "note": "Appendix B prints 0. Erratum 7920 adds that a parser should raise an error on -0. vcrs-php prints 0."
+  }
+ ],
+ "refused": [
+  {
+   "name": "a member name twice",
+   "text": "{\"a\":1,\"a\":2}",
+   "why": "duplicate_name"
+  },
+  {
+   "name": "not a number",
+   "text": "NaN",
+   "why": "not_finite"
+  },
+  {
+   "name": "an infinity",
+   "text": "-Infinity",
+   "why": "not_finite"
+  },
+  {
+   "name": "past the largest double",
+   "text": "1e400",
+   "why": "not_finite"
+  },
+  {
+   "name": "half a surrogate pair",
+   "text": "\"\\ud800\"",
+   "why": "lone_surrogate"
+  }
+ ],
+ "vcrs": {
+  "repository": "github.com/steddle/vcrs",
+  "commit": "7535c6867d1384c588005b1e20ad40c34dd3c7cc",
+  "rule": "Every file under vectors/ holds a record and expected.digest. SHA-256 over the record's canonical form, without its own digest member, is that digest.",
+  "run": "python3 check.py --vcrs PATH"
+ }
+}

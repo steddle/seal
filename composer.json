@@ -3,7 +3,8 @@
     "description": "How every Steddle product stores proof alike: the fingerprint and canonical JSON.",
     "license": "MIT",
     "require": {
-        "php": "^8.3"
+        "php": "^8.3",
+        "ext-mbstring": "*"
     },
     "require-dev": {
         "pestphp/pest": "^5.0"

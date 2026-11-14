@@ -1,0 +1,63 @@
+{
+    "description": "Admitted by the claimant for a special reason after the period, before the refined summons (8 § 2 mom): a member in law, which the validator does not count (Annex FI, section 8)",
+    "annex": "fi",
+    "context": {
+        "reference_date": "2027-03-15",
+        "opt_in_terms": [
+            {
+                "opened_on": "2026-11-02",
+                "closed_on": "2027-01-29",
+                "channel": null
+            }
+        ]
+    },
+    "flows": {
+        "f1": {
+            "informs": true,
+            "live_from": "2020-01-01",
+            "live_to": null
+        },
+        "f0": {
+            "informs": false,
+            "live_from": "2020-01-01",
+            "live_to": null
+        }
+    },
+    "record": {
+        "id": "r-0001",
+        "party": "natural",
+        "status": "active",
+        "joined_on": "2026-09-01",
+        "flow": "f1",
+        "terms": "t1",
+        "identity": {
+            "name": true,
+            "birth_date": true,
+            "contact_confirmed": true,
+            "verified": null
+        },
+        "membership": {
+            "basis": "declared",
+            "in_class": true,
+            "evidence": [],
+            "checked_against": null
+        },
+        "duplicate_of": null,
+        "residence": {
+            "country": "FI",
+            "on": "2026-09-01"
+        },
+        "opt_in": {
+            "on": "2027-02-10",
+            "channel": "qe",
+            "action": "action-1"
+        }
+    },
+    "expected": {
+        "grade": "D",
+        "reasons": [
+            "not_opted_in"
+        ],
+        "digest": "sha256:66b6cfc60c8bf5b174e9bebb716e42c8118faddb729e6de6d0197df661a34b28"
+    }
+}

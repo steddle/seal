@@ -1,0 +1,54 @@
+{
+    "description": "Gave the group's representative a written declaration of joining, with the statements on parallel actions (art. 11 ust. 2 pkt 3, art. 12)",
+    "annex": "pl",
+    "flows": {
+        "f1": {
+            "informs": true,
+            "live_from": "2020-01-01",
+            "live_to": null
+        },
+        "f0": {
+            "informs": false,
+            "live_from": "2020-01-01",
+            "live_to": null
+        }
+    },
+    "record": {
+        "id": "r-0001",
+        "party": "natural",
+        "status": "active",
+        "joined_on": "2026-09-01",
+        "flow": "f1",
+        "terms": "t1",
+        "identity": {
+            "name": true,
+            "birth_date": true,
+            "contact_confirmed": true,
+            "verified": null
+        },
+        "membership": {
+            "basis": "declared",
+            "in_class": true,
+            "evidence": [],
+            "checked_against": null
+        },
+        "duplicate_of": null,
+        "residence": {
+            "country": "PL",
+            "on": "2026-09-01"
+        },
+        "opt_in": {
+            "on": "2026-09-01",
+            "channel": "representative",
+            "action": "action-1"
+        },
+        "parallel_declared": true
+    },
+    "expected": {
+        "grade": "C",
+        "reasons": [
+            "declared_only"
+        ],
+        "digest": "sha256:f6c4b1a0b4f9188e9215a8670c169d370707a504083f2ed3e9572b12aa624835"
+    }
+}

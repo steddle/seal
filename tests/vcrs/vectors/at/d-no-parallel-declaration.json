@@ -1,0 +1,54 @@
+{
+    "description": "Beitritt filed without the declaration that the claim is pursued nowhere else (§ 628(2) ZPO)",
+    "annex": "at",
+    "flows": {
+        "f1": {
+            "informs": true,
+            "live_from": "2020-01-01",
+            "live_to": null
+        },
+        "f0": {
+            "informs": false,
+            "live_from": "2020-01-01",
+            "live_to": null
+        }
+    },
+    "record": {
+        "id": "r-0001",
+        "party": "natural",
+        "status": "active",
+        "joined_on": "2026-09-01",
+        "flow": "f1",
+        "terms": "t1",
+        "identity": {
+            "name": true,
+            "birth_date": true,
+            "contact_confirmed": true,
+            "verified": null
+        },
+        "membership": {
+            "basis": "declared",
+            "in_class": true,
+            "evidence": [],
+            "checked_against": null
+        },
+        "duplicate_of": null,
+        "residence": {
+            "country": "AT",
+            "on": "2026-09-01"
+        },
+        "opt_in": {
+            "on": "2026-09-15",
+            "channel": "qe",
+            "action": "action-1"
+        },
+        "parallel_declared": false
+    },
+    "expected": {
+        "grade": "D",
+        "reasons": [
+            "no_parallel_declaration"
+        ],
+        "digest": "sha256:2e9d81faaaa3ed8882b24f085f02ad1da2818321fdb106a2fbe7219fb5b0758b"
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "description": "Notified the trader, not the qualified entity (s. 24(1))",
+    "annex": "ie",
+    "flows": {
+        "f1": {
+            "informs": true,
+            "live_from": "2020-01-01",
+            "live_to": null
+        },
+        "f0": {
+            "informs": false,
+            "live_from": "2020-01-01",
+            "live_to": null
+        }
+    },
+    "record": {
+        "id": "r-0001",
+        "party": "natural",
+        "status": "active",
+        "joined_on": "2026-09-01",
+        "flow": "f1",
+        "terms": "t1",
+        "identity": {
+            "name": true,
+            "birth_date": true,
+            "contact_confirmed": true,
+            "verified": null
+        },
+        "membership": {
+            "basis": "declared",
+            "in_class": true,
+            "evidence": [],
+            "checked_against": null
+        },
+        "duplicate_of": null,
+        "residence": {
+            "country": "IE",
+            "on": "2026-09-01"
+        },
+        "opt_in": {
+            "on": "2026-09-01",
+            "channel": "trader",
+            "action": "action-1"
+        },
+        "parallel_declared": true
+    },
+    "expected": {
+        "grade": "D",
+        "reasons": [
+            "not_opted_in"
+        ],
+        "digest": "sha256:2fa45f55b130e9129fe6f22dcceebdf248b02fe480d65cfd8a16e78413aae0c6"
+    }
+}
