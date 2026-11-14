@@ -1,0 +1,451 @@
+{
+ "primitive": "4. Statement",
+ "about": "A statement is what a seal stamps: one JSON object whose RFC 8785 bytes are fingerprinted and kept. It names its form in 'form', a name of the shape imprint.thing/version. Wherever it points at something it uses a reference, an object with exactly 'fingerprint' and 'over': the fingerprint in its one spelling, and 'over' as 'bytes', 'rfc8785' or a form name. A fingerprint never stands as a plain string. It holds no fraction (a decimal is a string) and no whole number past 2^53. 'stated_at', where present, is the issuer's own clock: UTC to the second, ending in Z. No member name starts with U+0000. Everything else is the issuer's own.",
+ "statements": [
+  {
+   "name": "a Sizing run",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "steddle.sizing-inputs/1"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z"
+   },
+   "bytes": "{\"central\":\"23400\",\"engine_version\":\"1.4.0\",\"form\":\"steddle.sizing/2\",\"grade\":\"B\",\"inputs\":{\"fingerprint\":\"sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d\",\"over\":\"steddle.sizing-inputs/1\"},\"p10\":\"21000\",\"p50\":\"23300\",\"p90\":\"26000\",\"run\":\"01JCMZ9X8K3T5V7W9Y1B3D5F7H\",\"stated_at\":\"2026-11-14T10:00:00Z\"}",
+   "fingerprint": "sha256:1c43b173d41f0fd01e7dae5bd2bd4d2d83b70c26f5da6927e28a92abc1f3b284",
+   "references": [
+    {
+     "at": "/inputs",
+     "over": "steddle.sizing-inputs/1"
+    }
+   ]
+  },
+  {
+   "name": "an agreement signed through Send NDA",
+   "statement": {
+    "form": "sendnda.seal/2",
+    "nda": "00000000-0000-4000-8000-000000000001",
+    "pdf": {
+     "fingerprint": "sha256:a4592c0065e653530d2973fdf9e2f9284cc8a54d1020f8dff41a189e18bd06fe",
+     "over": "bytes"
+    },
+    "html": {
+     "fingerprint": "sha256:40d9888a8849128f5665cb059e4eaf1472790dd945c84216a7c8429008494baf",
+     "over": "bytes"
+    },
+    "certificate": {
+     "fingerprint": "sha256:52cc41871f90517bdc6fa12734f651fbf299778d7d9c5b04b2b3123561cf6ff8",
+     "over": "bytes"
+    },
+    "chain": {
+     "fingerprint": "sha256:bc95b215cf7150361a4e2d94df8333c4bca407581e4b0f27e2b98b8e98518ffe",
+     "over": "sendnda.chain/2"
+    },
+    "stated_at": "2026-11-14T10:10:00Z"
+   },
+   "bytes": "{\"certificate\":{\"fingerprint\":\"sha256:52cc41871f90517bdc6fa12734f651fbf299778d7d9c5b04b2b3123561cf6ff8\",\"over\":\"bytes\"},\"chain\":{\"fingerprint\":\"sha256:bc95b215cf7150361a4e2d94df8333c4bca407581e4b0f27e2b98b8e98518ffe\",\"over\":\"sendnda.chain/2\"},\"form\":\"sendnda.seal/2\",\"html\":{\"fingerprint\":\"sha256:40d9888a8849128f5665cb059e4eaf1472790dd945c84216a7c8429008494baf\",\"over\":\"bytes\"},\"nda\":\"00000000-0000-4000-8000-000000000001\",\"pdf\":{\"fingerprint\":\"sha256:a4592c0065e653530d2973fdf9e2f9284cc8a54d1020f8dff41a189e18bd06fe\",\"over\":\"bytes\"},\"stated_at\":\"2026-11-14T10:10:00Z\"}",
+   "fingerprint": "sha256:6e6917732049e9a830f434b9440a529fb1f2a5030075bef43d6d667772f268b6",
+   "references": [
+    {
+     "at": "/pdf",
+     "over": "bytes"
+    },
+    {
+     "at": "/html",
+     "over": "bytes"
+    },
+    {
+     "at": "/certificate",
+     "over": "bytes"
+    },
+    {
+     "at": "/chain",
+     "over": "sendnda.chain/2"
+    }
+   ]
+  },
+  {
+   "name": "a document several people sign",
+   "statement": {
+    "form": "sendnda.signing/2",
+    "signing": "00000000-0000-4000-8000-000000000002",
+    "document": {
+     "id": "example-document-7",
+     "version": 3,
+     "template": "mutual-nda"
+    },
+    "pdf": {
+     "fingerprint": "sha256:eff36b8c7de7024e6332ea41aceadfe180dec3c0aecab63dfb6121488b33e565",
+     "over": "bytes"
+    },
+    "signed": {
+     "fingerprint": "sha256:76f2fd189f6e3e4f2e864a657b20a61986b21a854ddd022441c29ba627e9a403",
+     "over": "bytes"
+    },
+    "certificate": {
+     "fingerprint": "sha256:a264f9960b468092647ff0a28e9ef0049f6871630195962d0959d2814cda115c",
+     "over": "bytes"
+    },
+    "chain": {
+     "fingerprint": "sha256:fcfdb0e4a9c2560e92040f78c5c53dbbd7c7fff620fc3189574001abc23508ae",
+     "over": "sendnda.signing-chain/2"
+    },
+    "stated_at": "2026-11-14T10:20:00Z"
+   },
+   "bytes": "{\"certificate\":{\"fingerprint\":\"sha256:a264f9960b468092647ff0a28e9ef0049f6871630195962d0959d2814cda115c\",\"over\":\"bytes\"},\"chain\":{\"fingerprint\":\"sha256:fcfdb0e4a9c2560e92040f78c5c53dbbd7c7fff620fc3189574001abc23508ae\",\"over\":\"sendnda.signing-chain/2\"},\"document\":{\"id\":\"example-document-7\",\"template\":\"mutual-nda\",\"version\":3},\"form\":\"sendnda.signing/2\",\"pdf\":{\"fingerprint\":\"sha256:eff36b8c7de7024e6332ea41aceadfe180dec3c0aecab63dfb6121488b33e565\",\"over\":\"bytes\"},\"signed\":{\"fingerprint\":\"sha256:76f2fd189f6e3e4f2e864a657b20a61986b21a854ddd022441c29ba627e9a403\",\"over\":\"bytes\"},\"signing\":\"00000000-0000-4000-8000-000000000002\",\"stated_at\":\"2026-11-14T10:20:00Z\"}",
+   "fingerprint": "sha256:86406ef2cbbf708afc7fa7a32d443de7be9440bc90d8ced22339090dd6f228ae",
+   "references": [
+    {
+     "at": "/pdf",
+     "over": "bytes"
+    },
+    {
+     "at": "/signed",
+     "over": "bytes"
+    },
+    {
+     "at": "/certificate",
+     "over": "bytes"
+    },
+    {
+     "at": "/chain",
+     "over": "sendnda.signing-chain/2"
+    }
+   ]
+  }
+ ],
+ "refused": [
+  {
+   "name": "no form",
+   "statement": {
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "steddle.sizing-inputs/1"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z"
+   },
+   "why": [
+    "missing_form"
+   ]
+  },
+  {
+   "name": "a form with no version",
+   "statement": {
+    "form": "steddle.sizing",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "steddle.sizing-inputs/1"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z"
+   },
+   "why": [
+    "form_pattern"
+   ]
+  },
+  {
+   "name": "a form in capitals",
+   "statement": {
+    "form": "Steddle.Sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "steddle.sizing-inputs/1"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z"
+   },
+   "why": [
+    "form_pattern"
+   ]
+  },
+  {
+   "name": "a fraction",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "steddle.sizing-inputs/1"
+    },
+    "engine_version": "1.4.0",
+    "central": 23400.5,
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z"
+   },
+   "why": [
+    "fraction_in_statement"
+   ]
+  },
+  {
+   "name": "a whole number written with a point",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "steddle.sizing-inputs/1"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": 21000.0,
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z"
+   },
+   "why": [
+    "fraction_in_statement"
+   ]
+  },
+  {
+   "name": "an integer past 2^53",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "steddle.sizing-inputs/1"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z",
+    "sequence": 9007199254740993
+   },
+   "why": [
+    "number_too_large"
+   ]
+  },
+  {
+   "name": "a reference in bare hex",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "steddle.sizing-inputs/1"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z"
+   },
+   "why": [
+    "fingerprint_spelling"
+   ]
+  },
+  {
+   "name": "a reference that does not say what it is over",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z"
+   },
+   "why": [
+    "reference_shape"
+   ]
+  },
+  {
+   "name": "a reference with a third member",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "bytes",
+     "name": "inputs"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z"
+   },
+   "why": [
+    "reference_shape"
+   ]
+  },
+  {
+   "name": "over that is not a name",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "json_encode"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z"
+   },
+   "why": [
+    "over_pattern"
+   ]
+  },
+  {
+   "name": "a fingerprint as a plain string, bare",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "steddle.sizing-inputs/1"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z",
+    "inputs_sha256": "c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d"
+   },
+   "why": [
+    "fingerprint_outside_reference"
+   ]
+  },
+  {
+   "name": "a fingerprint as a plain string, with the prefix",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z"
+   },
+   "why": [
+    "fingerprint_outside_reference"
+   ]
+  },
+  {
+   "name": "the old word: a reference that says digest",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "digest": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "steddle.sizing-inputs/1"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z"
+   },
+   "why": [
+    "fingerprint_outside_reference"
+   ]
+  },
+  {
+   "name": "a time with an offset",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "steddle.sizing-inputs/1"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T11:00:00+01:00"
+   },
+   "why": [
+    "time_not_utc"
+   ]
+  },
+  {
+   "name": "not an object",
+   "statement": [
+    "steddle.sizing/2",
+    "01JCMZ9X8K3T5V7W9Y1B3D5F7H"
+   ],
+   "why": [
+    "not_an_object"
+   ]
+  },
+  {
+   "name": "a member name that starts with U+0000",
+   "statement": {
+    "form": "steddle.sizing/2",
+    "run": "01JCMZ9X8K3T5V7W9Y1B3D5F7H",
+    "inputs": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "steddle.sizing-inputs/1"
+    },
+    "engine_version": "1.4.0",
+    "central": "23400",
+    "p10": "21000",
+    "p50": "23300",
+    "p90": "26000",
+    "grade": "B",
+    "stated_at": "2026-11-14T10:00:00Z",
+    "\u0000hidden": "x"
+   },
+   "why": [
+    "name_starts_with_nul"
+   ]
+  }
+ ]
+}

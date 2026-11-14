@@ -11,7 +11,7 @@
 
 The fingerprint and canonical JSON that Steddle's products store proof with.
 
-Two parts. A fingerprint is a SHA-256 value written one way, so two systems that store the same bytes agree on its text. Canonical JSON turns data into one exact byte sequence (RFC 8785 over I-JSON), so anyone who holds the data gets the same fingerprint. Plain PHP: no framework, nothing registered, no requirement beyond `ext-mbstring`.
+Three parts. A fingerprint is a SHA-256 value written one way, so two systems that store the same bytes agree on its text. Canonical JSON turns data into one exact byte sequence (RFC 8785 over I-JSON), so anyone who holds the data gets the same fingerprint. A statement is what a seal stamps: a JSON object that names its form and points at files by their fingerprints. [SPEC.md](SPEC.md) says how a seal is made and checked. Plain PHP: no framework, nothing registered, no requirement beyond `ext-mbstring`.
 
 ## Installation
 
@@ -51,9 +51,15 @@ The same record, written with other spacing, member order or number forms, gives
 - `Canonical::json($value)` writes members sorted by UTF-16 code units and numbers as ECMAScript prints them.
 - Every refusal is a `Refused` exception. Its `why` is a fixed code (`duplicate_name`, `not_finite`, `lone_surrogate`, `not_json`, `wrong_length`, `not_hex`, `unknown_prefix`), so callers can branch on it. Where one member is at fault, `pointer` gives its RFC 6901 JSON Pointer, such as `/records/3/id`.
 
+## Statement
+
+- `Statement::of($value)` and `Statement::read($json)` take what a seal stamps: one JSON object that names its `form` and points at files and data with references. They refuse a statement that breaks the rules in [SPEC.md](SPEC.md), with the rule as `why`, and `Statement::problems($value)` lists every rule it breaks.
+- `bytes()` is its RFC 8785 form, `fingerprint()` the fingerprint of those bytes, and `references()` every reference by its JSON Pointer.
+- `Reference::to($fingerprint, $over)` points at a file (`bytes`), at data in its canonical form (`rfc8785`) or at another form by name.
+
 ## Vectors
 
-`vectors/` is the contract: `fingerprint.json` and `canonical.json` state every input and its expected output or refusal, RFC 8785's number table among them. Another implementation in any language is equal to this one when it gives the same answer on every case.
+`vectors/` is the contract: `fingerprint.json`, `canonical.json` and `statement.json` state every input and its expected output or refusal, RFC 8785's number table among them. Another implementation in any language is equal to this one when it gives the same answer on every case.
 
 ```bash
 composer install

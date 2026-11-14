@@ -3,6 +3,8 @@
 ## [Unreleased]
 
 **Added**
+- `Statement` and `Reference`: what a seal stamps, by the rules of `SPEC.md`, with `vectors/statement.json` (three statements, sixteen refusals).
+- `SPEC.md`: Steddle Seal 1.0, how a seal is made and how anyone checks one.
 - `canonical.json` holds the short escapes: backspace, tab, form feed and carriage return.
 
 **Changed**
