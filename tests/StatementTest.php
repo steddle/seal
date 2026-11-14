@@ -13,9 +13,9 @@ function statementVectors(): array
     return json_decode(file_get_contents(dirname(__DIR__).'/vectors/statement.json'), true, flags: JSON_THROW_ON_ERROR);
 }
 
-test('the vector file holds 3 statements and 16 refusals', function () {
+test('the vector file holds 3 statements and 20 refusals', function () {
     expect(statementVectors()['statements'])->toHaveCount(3)
-        ->and(statementVectors()['refused'])->toHaveCount(16);
+        ->and(statementVectors()['refused'])->toHaveCount(20);
 });
 
 test('each statement writes its bytes, its fingerprint and its references', function (array $vector) {

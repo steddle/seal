@@ -446,6 +446,51 @@
    "why": [
     "name_starts_with_nul"
    ]
+  },
+  {
+   "name": "a form that ends in a line feed",
+   "statement": {
+    "form": "example.file/1\n"
+   },
+   "why": [
+    "form_pattern"
+   ]
+  },
+  {
+   "name": "a time that ends in a line feed",
+   "statement": {
+    "form": "example.file/1",
+    "stated_at": "2026-11-14T10:00:00Z\n"
+   },
+   "why": [
+    "time_not_utc"
+   ]
+  },
+  {
+   "name": "a reference whose fingerprint ends in a line feed",
+   "statement": {
+    "form": "example.file/1",
+    "file": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d\n",
+     "over": "bytes"
+    }
+   },
+   "why": [
+    "fingerprint_spelling"
+   ]
+  },
+  {
+   "name": "a reference whose over ends in a line feed",
+   "statement": {
+    "form": "example.file/1",
+    "file": {
+     "fingerprint": "sha256:c5aa13a210f4dc7a8fa17bc79797d9a5ba47051a09cfb7da6ce6cfc78ec7859d",
+     "over": "example.file/1\n"
+    }
+   },
+   "why": [
+    "over_pattern"
+   ]
   }
  ]
 }

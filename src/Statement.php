@@ -50,7 +50,7 @@ final class Statement
             $why[] = 'form_pattern';
         }
 
-        if (array_key_exists('stated_at', $members) && (! is_string($members['stated_at']) || preg_match('/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ$/', $members['stated_at']) !== 1)) {
+        if (array_key_exists('stated_at', $members) && (! is_string($members['stated_at']) || preg_match('/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ\z/', $members['stated_at']) !== 1)) {
             $why[] = 'time_not_utc';
         }
 
@@ -117,7 +117,7 @@ final class Statement
             is_array($value) => array_walk($value, fn (mixed $item) => self::walk($item, $why)),
             is_float($value) => $why[] = 'fraction_in_statement',
             is_int($value) && abs($value) > 2 ** 53 => $why[] = 'number_too_large',
-            is_string($value) && preg_match('/^(sha256:)?[0-9a-fA-F]{64}$/', $value) === 1 => $why[] = 'fingerprint_outside_reference',
+            is_string($value) && preg_match('/^(sha256:)?[0-9a-fA-F]{64}\z/', $value) === 1 => $why[] = 'fingerprint_outside_reference',
             default => null,
         };
     }
@@ -134,7 +134,7 @@ final class Statement
             return;
         }
 
-        if (! is_string($members['fingerprint']) || preg_match('/^sha256:[0-9a-f]{64}$/', $members['fingerprint']) !== 1) {
+        if (! is_string($members['fingerprint']) || preg_match('/^sha256:[0-9a-f]{64}\z/', $members['fingerprint']) !== 1) {
             $why[] = 'fingerprint_spelling';
         }
 

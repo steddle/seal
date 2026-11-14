@@ -8,7 +8,7 @@ namespace Steddle\Seal;
  */
 final class Reference
 {
-    public const string FORM = '/^[a-z][a-z0-9-]*\.[a-z][a-z0-9-]*\/[1-9][0-9]*$/';
+    public const string FORM = '/^[a-z][a-z0-9-]*\.[a-z][a-z0-9-]*\/[1-9][0-9]*\z/';
 
     private function __construct(public readonly Fingerprint $fingerprint, public readonly string $over) {}
 

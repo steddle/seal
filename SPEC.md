@@ -25,7 +25,7 @@ What a seal stamps is a statement: one JSON object.
 7. Everything else in it is the issuer's own.
 8. It holds nothing a reader of the sealed files may not see.
 
-`vectors/statement.json` gives three statements with their bytes, fingerprint and references, and sixteen that are refused, each with its reason.
+A pattern above matches the whole value: a form, a time, an `over` or a fingerprint that ends in a line feed is refused. `vectors/statement.json` gives three statements with their bytes, fingerprint and references, and twenty that are refused, each with its reason.
 
 ## 4. Proof
 
