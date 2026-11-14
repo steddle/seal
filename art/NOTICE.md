@@ -1,4 +1,4 @@
-# Seal's mark
+# Steddle Seal's mark
 
 The mark, the lockups and the banners in this folder are © 2026 Steddle Group B.V. They identify Seal and Steddle, and neither the MIT licence of the code nor the CC BY 4.0 licence of the vectors covers them. Use them to refer to Seal, unaltered.
 

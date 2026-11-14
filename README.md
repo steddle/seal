@@ -1,9 +1,9 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="art/social/readme-banner-dark.png">
-  <img src="art/social/readme-banner-light.png" alt="Seal: one fingerprint, byte for byte" width="1600">
+  <img src="art/social/readme-banner-light.png" alt="Steddle Seal: one fingerprint, byte for byte" width="1600">
 </picture>
 
-# Seal
+# Steddle Seal
 
 [![Packagist](https://img.shields.io/packagist/v/steddle/seal)](https://packagist.org/packages/steddle/seal)
 [![Tests](https://github.com/steddle/seal/actions/workflows/tests.yml/badge.svg)](https://github.com/steddle/seal/actions/workflows/tests.yml)
