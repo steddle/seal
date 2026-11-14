@@ -75,6 +75,20 @@ test('text that is not JSON is refused as not JSON, and NaN inside a string is t
         ->and(Canonical::json(Json::decode('["NaN", "-Infinity"]')))->toBe('["NaN","-Infinity"]');
 });
 
+test('a member name that appears twice is refused at its JSON pointer', function (string $text, string $pointer) {
+    expect(fn () => Json::decode($text))
+        ->toThrow(fn (Refused $refused) => expect($refused->why)->toBe('duplicate_name')->and($refused->pointer)->toBe($pointer));
+})->with([
+    'at the top' => ['{"a":1,"a":2}', '/a'],
+    'in a nested object' => ['{"x":{"a":1,"a":2}}', '/x/a'],
+    'in an array' => ['[{"x":1},{"x":1,"x":2}]', '/1/x'],
+    'with a slash and a tilde in the names' => ['{"a/b":{"~":1,"~":2}}', '/a~1b/~0'],
+]);
+
+test('a refusal that is not about one member names no pointer', function () {
+    expect(fn () => Json::decode('[1,]'))->toThrow(fn (Refused $refused) => expect($refused->pointer)->toBeNull());
+});
+
 test('each VCRS record gets its stated digest', function (string $path) {
     $file = Json::decode(file_get_contents($path));
     $record = clone $file->record;

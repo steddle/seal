@@ -26,7 +26,7 @@ final class Json
         }
 
         $offset = 0;
-        self::scan($json, $offset);
+        self::scan($json, $offset, '');
 
         return $value;
     }
@@ -43,7 +43,7 @@ final class Json
     /**
      * Walks one value of JSON that json_decode already accepted, so the text is well formed.
      */
-    private static function scan(string $json, int &$offset): void
+    private static function scan(string $json, int &$offset, string $pointer): void
     {
         self::space($json, $offset);
 
@@ -54,15 +54,16 @@ final class Json
 
             while ($json[$offset] !== '}') {
                 $name = self::string($json, $offset);
+                $member = $pointer.'/'.str_replace(['~', '/'], ['~0', '~1'], $name);
 
                 if (isset($names[$name])) {
-                    throw new Refused('duplicate_name', "The member '{$name}' appears more than once in its object.");
+                    throw new Refused('duplicate_name', "The member '{$name}' appears more than once in its object.", $member);
                 }
 
                 $names[$name] = true;
                 self::space($json, $offset);
                 $offset++;
-                self::scan($json, $offset);
+                self::scan($json, $offset, $member);
                 self::space($json, $offset);
 
                 if ($json[$offset] === ',') {
@@ -80,8 +81,8 @@ final class Json
             $offset++;
             self::space($json, $offset);
 
-            while ($json[$offset] !== ']') {
-                self::scan($json, $offset);
+            for ($index = 0; $json[$offset] !== ']'; $index++) {
+                self::scan($json, $offset, "{$pointer}/{$index}");
                 self::space($json, $offset);
 
                 if ($json[$offset] === ',') {
