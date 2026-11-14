@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [0.1.1] - 2026-11-14
 
 **Added**
 - `Statement` and `Reference`: what a seal stamps, by the rules of `SPEC.md`, with `vectors/statement.json` (three statements, sixteen refusals).
